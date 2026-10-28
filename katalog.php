@@ -38,6 +38,7 @@ $jumlahMenu = hitungJumlahMenu($menuKantin);
             
             <div class="grid-menu">
                 <?php foreach ($menuKantin as $menu): ?>
+                    <img src="<?= e($menu['gambar']); ?>" alt="Foto <?= e($menu['nama']); ?>" class="foto-menu">
                     <article class="kartu-menu">
                         <h4><?= e($menu['nama']); ?></h4>
                         <p>Kategori: <?= e($menu['kategori']); ?></p>
