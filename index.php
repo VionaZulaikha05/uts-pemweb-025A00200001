@@ -29,7 +29,11 @@ require 'functions.php';
             <article>
                 <p>Selamat datang di Kantin Wareg! Kami menyediakan aneka makanan dan minuman dengan harga yang ramah dikantong mahasiswa</p>
                 <p>Buka setiap hari Senin-Jumat, pukul 07.00 - 17.00 WIB.</p>
-            </article>
+                <div class="kontak-profil">
+                    <img src="gambar/kantin.jpg" alt="Ruang kantin" class="foto-profil"
+                    <p class="teks-suasana">Ruang makan didesain senyaman mungkin agar bisa digunakan untuk beristirahat sejenak dari hiruk-pikuk kehidupan sambil menikmati hidangan favoritmu.</p>
+                </div>        
+                </article>
         </section>
     </main>
 
