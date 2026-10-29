@@ -3,8 +3,18 @@ declare(strict_types=1);
 require 'data.php';
 require 'functions.php';
 
-$totalHarga = hitungTotalHarga($menuKantin);
-$jumlahMenu = hitungJumlahMenu($menuKantin);
+$kategoriTerpilih = $_GET['kategori'] ?? 'Semua';
+$menuTampil = $menuKantin;
+
+if ($kategoriTerpilih !== 'Semua') {
+    $menuTampil = array_filter($menuKantin, function($menu) use ($kategoriTerpilih) {
+        return $menu['kategori'] === $kategoriTerpilih;
+    });
+}
+
+$totalHarga = hitungTotalHarga($menuTampil);
+$jumlahMenu = hitungJumlahMenu($menuTampil);
+
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +40,16 @@ $jumlahMenu = hitungJumlahMenu($menuKantin);
         <section id="katalog">
             <h2>Daftar Menu</h2>
             
+            <form method="GET" action="katalog.php" style="margin-bottom: 20px;">
+                <label for="kategori">Filter Kategori : </label>
+                <select name="kategori" id="kategori" onchange="this.form.submit()">
+                    <option value="Semua" <?= $kategoriTerpilih === 'Semua' ? 'selected' : ''; ?>>Semua</option>
+                    <option value="Makanan" <?= $kategoriTerpilih === 'Makanan' ? 'selected' : ''; ?>>Makanan</option>
+                    <option value="Minuman" <?= $kategoriTerpilih === 'Minuman' ? 'selected' : ''; ?>>Minuman</option>
+                    <option value="Camilan" <?= $kategoriTerpilih === 'Camilan' ? 'selected' : ''; ?>>Camilan</option>
+                </select>
+            </form>
+
             <article class="ringkasan">
                 <h3>Ringkasan Kantin</h3>
                 <p>Jumlah Varian Menu: <strong><?= $jumlahMenu; ?> Item</strong></p>
@@ -37,10 +57,10 @@ $jumlahMenu = hitungJumlahMenu($menuKantin);
             </article>
             
             <div class="grid-menu">
-                <?php foreach ($menuKantin as $menu): ?>
+                <?php foreach ($menuTampil as $menu): ?>
                     <img src="<?= e($menu['gambar']); ?>" alt="Foto <?= e($menu['nama']); ?>" class="foto-menu">
                     <article class="kartu-menu">
-                        <h4><?= e($menu['nama']); ?></h4>
+                        <h3 class="judul-menu"><?= e($menu['nama']); ?></h3>
                         <p>Kategori: <?= e($menu['kategori']); ?></p>
                         <p>Harga: <?= formatRupiah($menu['harga']); ?></p>
                         
