@@ -32,13 +32,13 @@ Proyek ini adalah website profil dan katalog dinamis untuk Kantin Wareg. Data di
 
 ## 6. Tangkapan Layar 
 **Halaman Profil :**
-![Halaman Profil](gambar/Halaman%20Profil.png)
+![Halaman Profil](screenshot/Halaman%20Profil.png)
 
 **Halaman Katalog :**
-![Halaman Katalog](gambar/Halaman%20Katalog.png)
-![Halaman Katalog](gambar/Makanan.png)
-![Halaman Katalog](gambar/Minuman.png)
-![Halaman Katalog](gambar/Camilan.png)
+![Halaman Katalog](screenshot/Halaman%20Katalog.png)
+![Halaman Katalog](screenshot/Makanan.png)
+![Halaman Katalog](screenshot/Minuman.png)
+![Halaman Katalog](screenshot/Camilan.png)
 
 ## 7. Sumber Referensi dan Catatan Penggunaan AI
 - **Sumber Referensi Utama :** Materi kuliah pemrograman web (peretemuan 1-7) dan modul praktikum.
